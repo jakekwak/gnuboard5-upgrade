@@ -1,0 +1,36 @@
+.write_import_area .tab_con{background:#fff;padding:10px;border:1px solid #d0d8e5;border-top:0;border-bottom-color:#b6bfca}
+.write_import_area .tab_con.hide{display:none}
+.write_import_area .tab_con:after {display:block;visibility:hidden;clear:both;content:""}
+.write_import_area .tab_tit{padding: 15px;line-height:15px;font-size:1.083em;width:100%;border:0;border:1px solid #d0d8e5;margin-top:10px;text-align:left;font-weight:bold}
+
+#get-categories-word .word {display:inline-block;margin:3px;padding:3px 5px;border:1px solid #9db4c2;font-size:1.3rem;letter-spacing:-1px}
+#get-categories-word .word:hover {cursor:pointer;color:#fff;background:#3baeff;border:1px solid #3baeff;text-decoration:none}
+
+.categories-select-words tags{font-size:1.2em}
+/* form ul */
+.write_import_area .h2_frm{position:absolute;font-size:0;line-height:0;overflow:hidden}
+.write_import_area .frm_wr{background:#fff;border-bottom: 1px solid #b6c1d0;padding:10px;}
+.write_import_area .frm_ul li{border-top:1px solid #f2f2f2;padding:10px 5px;position:relative}
+.write_import_area .frm_ul:after {display:block;visibility:hidden;clear:both;content:""}
+.write_import_area .lb_block{display:block;margin:0 0 5px;color:#33548a;line-height:21px;font-weight:bold}
+.write_import_area .frm_ul li:first-child,.frm_ul .bd_0{border:0;}
+.write_import_area .gmail-tab li, .write_import_area .oauth-tab li{border-top:1px solid #f2f2f2 !important}
+.write_import_area .frm_ul .li_50{float:left;width:50%}
+.write_import_area .frm_ul .li_clear{clear:both}
+.write_import_area .frm_ul .li_left_clear{clear:left}
+.write_import_area .frm_ul li .frm_input{max-width:100%}
+.write_import_area .frm_ul .li_address .frm_input{margin:2px 0}
+.write_import_area .frm_ul .al_ap{position:absolute;top:10px;right:10px;font-size:0.92em;}
+.write_import_area .frm_ul .al_ap label{display:inline-block;margin-right:10px}
+.write_import_area .frm_ul .btn_frmline{margin:2px 0}
+.write_import_area .frm_ul .select2-container{margin:5px 0}
+
+dd.smtp-type-tabs{margin-top:1em}
+dd.smtp-type-tabs:after {display:block;visibility:hidden;clear:both;content:""}
+dd.smtp-type-tabs dl{position:relative;display:inline-block;float:left;text-align:center;margin:0;padding:0;width:230px}
+dd.smtp-type-tabs dl a{margin:0 2px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;line-height:2.5;background-color:#f7f7f7;color:#74777b;font-weight:bold;font-size:1.2em;text-decoration:none}
+dd.smtp-type-tabs dl.active a{background:#ecaf42;color:#000}
+
+.write_import_area .find-word span{padding:5px}
+.write_import_area .loading{padding-top:1em}
+.write_import_area  select#select_bo_table {margin-right:5px}
