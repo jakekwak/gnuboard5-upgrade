@@ -108,7 +108,7 @@ if (!$is_admin && $board['bo_use_secret'] == 2) {
 
 $html = '';
 if (isset($_POST['html']) && $_POST['html']) {
-    if(preg_match('#html(1|2)#', strtolower($_POST['html']), $matches))
+    if(preg_match('#html(1|2)|markdown#', strtolower($_POST['html']), $matches))
         $html = $matches[0];
 }
 

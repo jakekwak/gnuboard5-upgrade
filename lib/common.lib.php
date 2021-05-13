@@ -389,6 +389,8 @@ function get_list($write_row, $board, $skin_url, $subject_len=40)
 			$html = 1;
 		else if (strstr($list['wr_option'], 'html2'))
 			$html = 2;
+		else if (strstr($list['wr_option'], 'markdown'))
+			$html = 3;
 
         $list['content'] = conv_content($list['wr_content'], $html);
 	}
@@ -525,7 +527,7 @@ function conv_content($content, $html, $filter=true)
 {
     global $config, $board;
 
-    if ($html)
+    if ($html == 1 || $html == 2)
     {
         $source = array();
         $target = array();
@@ -551,7 +553,7 @@ function conv_content($content, $html, $filter=true)
         if($filter)
             $content = html_purifier($content);
     }
-    else // text 이면
+    else if ($html == 0) // text 이면
     {
         // & 처리 : &amp; &nbsp; 등의 코드를 정상 출력함
         $content = html_symbol($content);
@@ -563,6 +565,8 @@ function conv_content($content, $html, $filter=true)
 
         $content = get_text($content, 1);
         $content = url_auto_link($content);
+    } else if ($html == 3) {
+      $content = get_text($content, 0);
     }
 
     return $content;

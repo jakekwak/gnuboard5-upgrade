@@ -117,6 +117,8 @@ if (strstr($view['wr_option'], 'html1'))
     $html = 1;
 else if (strstr($view['wr_option'], 'html2'))
     $html = 2;
+else if (strstr($view['wr_option'], 'markdown'))
+    $html = 3;
 
 $view['content'] = conv_content($view['wr_content'], $html);
 if (strstr($sfl, 'content'))
