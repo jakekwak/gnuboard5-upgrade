@@ -102,7 +102,8 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
          ?>
 
         <!-- 본문 내용 시작 { -->
-        <div id="bo_v_con"><?php echo get_view_thumbnail($view['content']); ?></div>
+        <div id="bo_v_con"></div>
+        <textarea id="markdownText" class="preview" style="display:none;"><?php echo get_view_thumbnail($view['content']);?></textarea>
         <?php //echo $view['rich_content']; // {이미지:0} 과 같은 코드를 사용할 경우 ?>
         <!-- } 본문 내용 끝 -->
 
@@ -219,6 +220,42 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 	?>
 </article>
 <!-- } 게시판 읽기 끝 -->
+
+<script>
+
+Vditor.preview(document.getElementById('bo_v_con'),
+    document.getElementById('markdownText').textContent, {
+        markdown: {
+            toc: true,
+            mark: true,
+            footnotes: true,
+            autoSpace: true,
+        },
+        math: {
+          engine: 'KaTex',
+        },
+        speech: {
+          enable: true,
+        },
+        anchor: 1,
+        after () {
+          if (window.innerWidth <= 768) {
+            return
+          }
+          Vditor.outlineRender(previewElement, outlineElement)
+          if (outlineElement.innerText.trim() !== '') {
+            outlineElement.style.display = 'block'
+          }
+        },
+        lang: 'ko_KR',
+        // lazyLoadImage: 'https://cdn.jsdelivr.net/npm/vditor/dist/images/img-loading.svg',
+        hljs: {
+            style: 'monokai', //코드 스타일 테마 지정 가능
+        },
+        className: 'preview vditor-reset',
+        customEmoji: emojiOptions,
+    })
+</script>
 
 <script>
 <?php if ($board['bo_download_point'] < 0) { ?>
