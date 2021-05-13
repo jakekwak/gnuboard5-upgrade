@@ -238,15 +238,15 @@ Vditor.preview(document.getElementById('bo_v_con'),
           enable: true,
         },
         anchor: 1,
-        after () {
-          if (window.innerWidth <= 768) {
-            return
-          }
-          Vditor.outlineRender(previewElement, outlineElement)
-          if (outlineElement.innerText.trim() !== '') {
-            outlineElement.style.display = 'block'
-          }
-        },
+        // after () {
+        //   if (window.innerWidth <= 768) {
+        //     return
+        //   }
+        //   Vditor.outlineRender(previewElement, outlineElement)
+        //   if (outlineElement.innerText.trim() !== '') {
+        //     outlineElement.style.display = 'block'
+        //   }
+        // },
         lang: 'ko_KR',
         // lazyLoadImage: 'https://cdn.jsdelivr.net/npm/vditor/dist/images/img-loading.svg',
         hljs: {
