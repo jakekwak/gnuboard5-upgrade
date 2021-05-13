@@ -105,7 +105,7 @@ if($action === 'get_catetory'){
         alert('게시판 선택을 해 주세요.', G5_URL);
     }
 
-    $params = array('action'=>$action, 'categories'=>$categories, 'token'=>$token, 'is_image_file'=>$is_image_file, 'q_rows'=>$q_rows, 'g5_url'=>G5_URL);
+    $params = array('action'=>$action, 'categories'=>$categories, 'token'=>$token, 'is_image_file'=>$is_image_file, 'q_rows'=>$q_rows+1, 'g5_url'=>G5_URL);
 
     $data = curl_import_post_return($url, $params);
 
