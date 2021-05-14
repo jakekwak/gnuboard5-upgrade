@@ -1,7 +1,5 @@
 !.gitignore
 /.htaccess
-!data/.gitignore
-data/
 test/
 sirgle/
 test.php
@@ -12,4 +10,16 @@ ckeditor*/
 log/
 g5_tree/
 naver*.html
+data/.htaccess
+data/dbconfig.php
+data/cache/
+data/content/
+data/editor/
+data/faq/
+data/file/
+data/log/
+data/member/
+data/member_image/
+data/session/
+data/tmp/
 plugin/editor/Vditor3
