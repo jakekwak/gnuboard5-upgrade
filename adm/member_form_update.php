@@ -77,8 +77,10 @@ if( $w == '' || $w == 'u' ){
   $mb_icon_img = get_mb_icon_name($mb_id).'.gif';
 
   // 회원 아이콘 삭제
-  if (isset($del_mb_icon) && $del_mb_icon)
+  if (isset($del_mb_icon) && $del_mb_icon) {
     @unlink(G5_DATA_PATH.'/member/'.$mb_dir.'/'.$mb_icon_img);
+    $mb_icon_data = '';
+  }
 
   $image_regex = "/(\.(gif|jpe?g|png))$/i";
 
@@ -100,6 +102,7 @@ if( $w == '' || $w == 'u' ){
           chmod($dest_path, G5_FILE_PERMISSION);
           
           if (file_exists($dest_path)) {
+              $mb_icon_data = '/member/'.$mb_dir.'/'.$mb_icon_img;
               $size = @getimagesize($dest_path);
               if ($size[0] > $config['cf_member_icon_width'] || $size[1] > $config['cf_member_icon_height']) {
                   $thumb = null;
@@ -114,6 +117,7 @@ if( $w == '' || $w == 'u' ){
                   if( !$thumb ){
                       // 아이콘의 폭 또는 높이가 설정값 보다 크다면 이미 업로드 된 아이콘 삭제
                       @unlink($dest_path);
+                      $mb_icon_data = '';
                   }
               }
           }
@@ -128,8 +132,10 @@ if( $w == '' || $w == 'u' ){
   $mb_img_dir .= substr($mb_id,0,2);
 
   // 회원 이미지 삭제
-  if (isset($del_mb_img) && $del_mb_img)
+  if (isset($del_mb_img) && $del_mb_img) {
     @unlink($mb_img_dir.'/'.$mb_icon_img);
+    $mb_image_data = '';
+  }
 
   // 이미지 업로드
   if (isset($_FILES['mb_img']) && is_uploaded_file($_FILES['mb_img']['tmp_name'])) {
@@ -147,6 +153,7 @@ if( $w == '' || $w == 'u' ){
           chmod($dest_path, G5_FILE_PERMISSION);
 
           if (file_exists($dest_path)) {
+              $mb_image_data = '/member_image/'.$mb_dir.'/'.$mb_icon_img;
               $size = @getimagesize($dest_path);
               if ($size[0] > $config['cf_member_img_width'] || $size[1] > $config['cf_member_img_height']) {
                   $thumb = null;
@@ -161,6 +168,7 @@ if( $w == '' || $w == 'u' ){
                   if( !$thumb ){
                       // 아이콘의 폭 또는 높이가 설정값 보다 크다면 이미 업로드 된 아이콘 삭제
                       @unlink($dest_path);
+                      $mb_image_data = '';
                   }
               }
           }
