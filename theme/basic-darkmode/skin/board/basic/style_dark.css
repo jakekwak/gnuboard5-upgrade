@@ -36,3 +36,9 @@
 .dark .more_opt li {border-bottom:1px solid #f1f1f1;color:#eee;background:#555;}
 .dark .more_opt li button, .more_opt li a {width:100%;border:0;background:#555;color:#eee}
 
+.dark #bo_w .bo_w_tit .frm_input {background: #868e96; color: #f1f3f5}
+.dark #bo_w .bo_w_info .frm_input {background: #868e96; color: #f1f3f5}
+.dark #bo_w .bo_w_link .frm_input {background: #868e96; color: #f1f3f5}
+.dark #bo_w .bo_w_flie .frm_input {background: #868e96; color: #f1f3f5}
+.dark #bo_w .bo_w_flie .file_wr {border:1px solid #adb5b9;background: #868e96; color: #f1f3f5}
+.dark #bo_w .bo_w_flie .frm_file {background: #868e96; color: #f1f3f5}
