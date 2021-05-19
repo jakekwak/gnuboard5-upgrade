@@ -1,0 +1,38 @@
+@charset "utf-8";
+
+.dark #bo_list tbody tr {background:#2b2b2b}
+.dark #bo_list tbody .even td {background:#3b3b3b}
+.dark #bo_list_total {color: #ddd;}
+.dark #bo_v {background:#313030;}
+.dark #bo_v_title .bo_v_cate {background:#212121;color:#3a8afd;}
+.dark #bo_v_title .bo_v_tit {color: #d0d0d0}
+.dark #bo_v_top ul {background: #313030}
+/* .dark .btn_bo_user ul {background:#313030;}
+.dark .bo_v_com > li {background:#313030;} */
+
+/* .dark #bo_v_share {background: #555} */
+.dark #bo_v_share .btn {background: #333;border-color:#888; color: #d0d0d0}
+.dark a.btn_b03 {background: #333;}
+.dark #bo_v_share .btn:hover {background:#aaa; color: #444}
+.dark #bo_v_share .btn i {color: #d0d0d0}
+.dark .bo_v_nb li:hover {background:#aaa;color: #eee}
+.dark .bo_v_nb li:hover .nb_tit {color:#eee;}
+
+.dark #bo_v_con {color: #eee}
+.dark #bo_v_con a {color:#ddd;}
+.dark #bo_v_con img {}
+
+/* 게시판 댓글 */
+.dark .cmt_btn {border-bottom:1px solid #777;background:#555;}
+.dark .cmt_btn span.total {color:#3a8afd}
+.dark .cmt_btn b {color:#eee}
+
+
+.dark .bo_vc_w textarea {border:1px solid #aaa;background:#444;color:#000;}
+.dark #bo_vc .cmt_contents {color: #eee;}
+.dark #bo_vc article .cm_wrap {color: #eee;}
+.dark #bo_v_info .sv_member {color:#eee}
+
+.dark .more_opt li {border-bottom:1px solid #f1f1f1;color:#eee;background:#555;}
+.dark .more_opt li button, .more_opt li a {width:100%;border:0;background:#555;color:#eee}
+

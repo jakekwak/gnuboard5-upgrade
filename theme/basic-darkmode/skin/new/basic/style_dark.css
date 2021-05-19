@@ -1,0 +1,5 @@
+@charset "utf-8";
+
+.dark #new_sch {background:#313030;}
+.dark #new_sch .frm_input {border:1px solid #d0d3db; background: #555; color: #eee}
+.dark #new_sch select {border:1px solid #d0d3db;background: #555; color: #eee}

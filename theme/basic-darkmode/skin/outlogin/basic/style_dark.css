@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+/* 아웃로그인 스킨 */
+.dark #ol_after_hd strong {color: #a0a0a1}
+.dark #ol_after_private a {color: #d0d3db;}
+.dark #ol_after_private li a:hover {color:#4b8bff;background:#555}
+.dark #ol_id {
+  background: #313030;
+  color: #c0c0c0;
+}
+.dark #ol_pw {
+  background: #313030;
+  border: 1px solid #d0d3db;
+  color: #c0c0c0;
+}
+.dark .ol h2 {
+  color: #c0c0c0;
+}
+.dark .ol .join {
+  background: #575757;
+  color: #d0d3db;
+}
