@@ -126,10 +126,10 @@ $sql = " insert into `{$table_prefix}config`
                 cf_memo_send_point = '500',
                 cf_cut_name = '15',
                 cf_nick_modify = '60',
-                cf_new_skin = 'basic',
+                cf_new_skin = 'theme/basic',
                 cf_new_rows = '15',
-                cf_search_skin = 'basic',
-                cf_connect_skin = 'basic',
+                cf_search_skin = 'theme/basic',
+                cf_connect_skin = 'theme/basic',
                 cf_read_point = '$read_point',
                 cf_write_point = '$write_point',
                 cf_comment_point = '$comment_point',
@@ -142,13 +142,13 @@ $sql = " insert into `{$table_prefix}config`
                 cf_possible_ip = '',
                 cf_intercept_ip = '',
                 cf_analytics = '',
-                cf_member_skin = 'basic',
-                cf_mobile_new_skin = 'basic',
-                cf_mobile_search_skin = 'basic',
-                cf_mobile_connect_skin = 'basic',
-                cf_mobile_member_skin = 'basic',
-                cf_faq_skin = 'basic',
-                cf_mobile_faq_skin = 'basic',
+                cf_member_skin = 'theme/basic',
+                cf_mobile_new_skin = 'theme/basic',
+                cf_mobile_search_skin = 'theme/basic',
+                cf_mobile_connect_skin = 'theme/basic',
+                cf_mobile_member_skin = 'theme/basic',
+                cf_faq_skin = 'theme/basic',
+                cf_mobile_faq_skin = 'theme/basic',
                 cf_editor = 'smarteditor2',
                 cf_captcha_mp3 = 'basic',
                 cf_register_level = '2',
@@ -187,7 +187,7 @@ sql_query($sql, true, $dblink);
 $sql = " insert into `{$table_prefix}qa_config`
             ( qa_title, qa_category, qa_skin, qa_mobile_skin, qa_use_email, qa_req_email, qa_use_hp, qa_req_hp, qa_use_editor, qa_subject_len, qa_mobile_subject_len, qa_page_rows, qa_mobile_page_rows, qa_image_width, qa_upload_size, qa_insert_content )
           values
-            ( '1:1문의', '회원|포인트', 'basic', 'basic', '1', '0', '1', '0', '1', '60', '30', '15', '15', '600', '1048576', '' ) ";
+            ( '1:1문의', '회원|포인트', 'theme/basic', 'theme/basic', '1', '0', '1', '0', '1', '60', '30', '15', '15', '600', '1048576', '' ) ";
 sql_query($sql, true, $dblink);
 
 // 관리자 회원가입
@@ -208,9 +208,9 @@ $sql = " insert into `{$table_prefix}member`
 sql_query($sql, true, $dblink);
 
 // 내용관리 생성
-sql_query(" insert into `{$table_prefix}content` set co_id = 'company', co_html = '1', co_subject = '회사소개', co_seo_title = '".generate_seo_title('회사소개')."', co_content= '<p align=center><b>회사소개에 대한 내용을 입력하십시오.</b></p>' ", true, $dblink);
-sql_query(" insert into `{$table_prefix}content` set co_id = 'privacy', co_html = '1', co_subject = '개인정보 처리방침', co_seo_title = '".generate_seo_title('개인정보 처리방침')."', co_content= '<p align=center><b>개인정보 처리방침에 대한 내용을 입력하십시오.</b></p>' ", true, $dblink);
-sql_query(" insert into `{$table_prefix}content` set co_id = 'provision', co_html = '1', co_subject = '서비스 이용약관', co_seo_title = '".generate_seo_title('서비스 이용약관')."', co_content= '<p align=center><b>서비스 이용약관에 대한 내용을 입력하십시오.</b></p>' ", true, $dblink);
+sql_query(" insert into `{$table_prefix}content` set co_id = 'company', co_html = '1', co_skin = 'theme/basic', co_mobile_skin = 'theme/basic', co_subject = '회사소개', co_seo_title = '".generate_seo_title('회사소개')."', co_content= '<p align=center><b>회사소개에 대한 내용을 입력하십시오.</b></p>' ", true, $dblink);
+sql_query(" insert into `{$table_prefix}content` set co_id = 'privacy', co_html = '1', co_skin = 'theme/basic', co_mobile_skin = 'theme/basic', co_subject = '개인정보 처리방침', co_seo_title = '".generate_seo_title('개인정보 처리방침')."', co_content= '<p align=center><b>개인정보 처리방침에 대한 내용을 입력하십시오.</b></p>' ", true, $dblink);
+sql_query(" insert into `{$table_prefix}content` set co_id = 'provision', co_html = '1', co_skin = 'theme/basic', co_mobile_skin = 'theme/basic', co_subject = '서비스 이용약관', co_seo_title = '".generate_seo_title('서비스 이용약관')."', co_content= '<p align=center><b>서비스 이용약관에 대한 내용을 입력하십시오.</b></p>' ", true, $dblink);
 
 // FAQ Master
 sql_query(" insert into `{$table_prefix}faq_master` set fm_id = '1', fm_subject = '자주하시는 질문' ", true, $dblink);
@@ -227,7 +227,7 @@ $tmp_bo_subject = array ("공지사항", "질문답변", "자유게시판", "갤
 for ($i=0; $i<count($tmp_bo_table); $i++)
 {
 
-    $bo_skin = ($tmp_bo_table[$i] === 'gallery') ? 'gallery' : 'basic';
+    $bo_skin = ($tmp_bo_table[$i] === 'gallery') ? 'theme/gallery' : 'theme/basic';
 
     $sql = " insert into `{$table_prefix}board`
                 set bo_table = '$tmp_bo_table[$i]',
