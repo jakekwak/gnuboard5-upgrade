@@ -12,6 +12,14 @@ $g5['tag_write_table'] = G5_TABLE_PREFIX.'tag_write'; // 태그와 게시판 관
 //tag 사용여부
 $board['bo_use_tag'] = true;
 
+if (G5_IS_MOBILE) {
+  $tags_skin_path      = get_skin_path('tags', 'theme/basic');
+  $tags_skin_url       = get_skin_url('tags', 'theme/basic');
+} else {
+  $tags_skin_path      = get_skin_path('tags', 'theme/basic');
+  $tags_skin_url       = get_skin_url('tags', 'theme/basic');
+};
+
 if(!sql_query(" DESC  $g5[hash_tag_table]", false)) {
 	$sql_table = "create table $g5[hash_tag_table] (
 		id  int(11) NOT NULL AUTO_INCREMENT,
