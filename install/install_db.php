@@ -227,7 +227,7 @@ $tmp_bo_subject = array ("공지사항", "질문답변", "자유게시판", "갤
 for ($i=0; $i<count($tmp_bo_table); $i++)
 {
 
-    $bo_skin = ($tmp_bo_table[$i] === 'gallery') ? 'theme/gallery' : 'theme/basic';
+    $bo_skin = ($tmp_bo_table[$i] === 'gallery') ? 'theme/gallery' : 'theme/basic-tag';
 
     $sql = " insert into `{$table_prefix}board`
                 set bo_table = '$tmp_bo_table[$i]',

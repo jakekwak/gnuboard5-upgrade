@@ -2,25 +2,15 @@
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 if (!$board['bo_use_tag']) return;
 
-if(!sql_query(" DESC  $g5[hash_tag_table]", false)) {
-	$sql_table = "create table $g5[hash_tag_table] (
-		ct_idx  int not null auto_increment,
-		bo_table varchar(20) not null default '' comment '게시판코드',
-		wr_id int not null default '0' comment '게시판시퀀스', 
-		ct_tag varchar(100) not null default '' comment '태그', 
-		ct_ip varchar(25) not null default '' comment 'ip', 
-		ct_regdate datetime not null default '0000-00-00 00:00:00', 
-		primary key( ct_idx ) , 
-		index  $g5[hash_tag_table]_index1(ct_tag) 
-		) comment '태그테이블'";
-
-	sql_query( $sql_table, false );
-}
-
-$sql_table	=	"alter table {$write_table} add column tags varchar(200) default '' comment '태그'";
-sql_query( $sql_table , false );	
-
+// 게시글 $view에서 $tags를 분리해서 표시함.
 $arrtag = explode(",", $view['tags']);
+
+$sql_table = "SELECT $g5[hash_tag_table].name
+  FROM $write_table
+  JOIN g5_tag_write ON $write_table.wr_id = g5_tag_write.wr_id
+  JOIN $g5[hash_tag_table] ON $g5[hash_tag_table].id = g5_tag_write.tag_id
+  WHERE $g5[hash_tag_table].bo_table = '$bo_table' and $write_table.wr_id = $wr_id";
+$result = sql_query( $sql_table , false);
 
 if( $view['tags'] ){
 ?>
@@ -57,7 +47,10 @@ if( $view['tags'] ){
 </style>
 <!-- 태그목록 -->
 <div class="hash_tag">  
-	<?php foreach( $arrtag as $key => $val ){ $val = trim($val);?>
+	<?php 
+    for ($i=0; $row=sql_fetch_array($result); $i++) {
+      $val = trim($row['name']);
+  ?>
 	<a href="<?php echo G5_BBS_URL?>/board.php?bo_table=<?php echo $bo_table?>&amp;sfl=tags&amp;stx=<?php echo $val?>"><?php echo $val?></a>
 	<?php }?>
 </div>

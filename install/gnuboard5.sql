@@ -932,17 +932,17 @@ CREATE TABLE IF NOT EXISTS `g5_menu` (
 -- Table structure for table `g5_tag`
 --
 
-DROP TABLE IF EXISTS `g5_tag`;
-CREATE TABLE IF NOT EXISTS `g5_tag` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL DEFAULT '',
-  `mb_id` varchar(20) NOT NULL,
-  `bo_table` varchar(20) NOT NULL DEFAULT '',
-  `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
-  `updatedAt` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`),
-  KEY tag (`name`, `bo_table`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+-- DROP TABLE IF EXISTS `g5_tag`;
+-- CREATE TABLE IF NOT EXISTS `g5_tag` (
+--   `id` int(11) NOT NULL AUTO_INCREMENT,
+--   `name` varchar(255) NOT NULL DEFAULT '',
+--   `mb_id` varchar(20) NOT NULL,
+--   `bo_table` varchar(20) NOT NULL DEFAULT '',
+--   `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+--   `updatedAt` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+--   PRIMARY KEY  (`id`),
+--   KEY tag (`name`, `bo_table`)
+-- ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -950,11 +950,11 @@ CREATE TABLE IF NOT EXISTS `g5_tag` (
 -- Table structure for many to many write to tag
 --
 
-DROP TABLE IF EXISTS `g5_tag_write`;
-CREATE TABLE IF NOT EXISTS `g5_tag_write` (
-  `wr_id` int(11) NOT NULL,
-  `tag_id` int(11) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+-- DROP TABLE IF EXISTS `g5_tag_write`;
+-- CREATE TABLE IF NOT EXISTS `g5_tag_write` (
+--   `wr_id` int(11) NOT NULL,
+--   `tag_id` int(11) NOT NULL
+-- ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -962,17 +962,17 @@ CREATE TABLE IF NOT EXISTS `g5_tag_write` (
 -- Table structure for table `g5_category`
 --
 
-DROP TABLE IF EXISTS `g5_category`;
-CREATE TABLE IF NOT EXISTS `g5_category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL DEFAULT '',
-  `mb_id` varchar(20) NOT NULL,
-  `bo_table` varchar(20) NOT NULL DEFAULT '',
-  `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
-  `updatedAt` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`),
-  KEY tag (`name`, `bo_table`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+-- DROP TABLE IF EXISTS `g5_category`;
+-- CREATE TABLE IF NOT EXISTS `g5_category` (
+--   `id` int(11) NOT NULL AUTO_INCREMENT,
+--   `name` varchar(255) NOT NULL DEFAULT '',
+--   `mb_id` varchar(20) NOT NULL,
+--   `bo_table` varchar(20) NOT NULL DEFAULT '',
+--   `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+--   `updatedAt` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+--   PRIMARY KEY  (`id`),
+--   KEY tag (`name`, `bo_table`)
+-- ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -980,11 +980,11 @@ CREATE TABLE IF NOT EXISTS `g5_category` (
 -- Table structure for many to many write to category
 --
 
-DROP TABLE IF EXISTS `g5_category_write`;
-CREATE TABLE IF NOT EXISTS `g5_category_write` (
-  `wr_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+-- DROP TABLE IF EXISTS `g5_category_write`;
+-- CREATE TABLE IF NOT EXISTS `g5_category_write` (
+--   `wr_id` int(11) NOT NULL,
+--   `category_id` int(11) NOT NULL
+-- ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -992,17 +992,16 @@ CREATE TABLE IF NOT EXISTS `g5_category_write` (
 -- Table structure for table `g5_singo`
 --
 
-DROP TABLE IF EXISTS `g5_singo`;
-CREATE TABLE IF NOT EXISTS `g5_singo` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL DEFAULT '',
-  `mb_id` varchar(20) NOT NULL,
-  `bo_table` varchar(20) NOT NULL DEFAULT '',
-  `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
-  `updatedAt` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`),
-  KEY tag (`name`, `bo_table`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+-- DROP TABLE IF EXISTS `g5_singo`;
+-- CREATE TABLE IF NOT EXISTS `g5_singo` (
+--   `id` int(11) NOT NULL AUTO_INCREMENT,
+--   `name` varchar(255) NOT NULL DEFAULT '',
+--   `bo_table` varchar(20) NOT NULL DEFAULT '',
+--   `createdAt` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ,
+--   `updatedAt` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+--   PRIMARY KEY  (`id`),
+--   KEY tag (`name`, `bo_table`)
+-- ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1010,8 +1009,8 @@ CREATE TABLE IF NOT EXISTS `g5_singo` (
 -- Table structure for many to many write to tag
 --
 
-DROP TABLE IF EXISTS `g5_singo_write`;
-CREATE TABLE IF NOT EXISTS `g5_singo_write` (
-  `wr_id` int(11) NOT NULL,
-  `tag_id` int(11) NOT NULL
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+-- DROP TABLE IF EXISTS `g5_singo_write`;
+-- CREATE TABLE IF NOT EXISTS `g5_singo_write` (
+--   `wr_id` int(11) NOT NULL,
+--   `tag_id` int(11) NOT NULL
+-- ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
