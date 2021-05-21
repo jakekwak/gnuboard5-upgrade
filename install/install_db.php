@@ -255,7 +255,7 @@ for ($i=0; $i<count($tmp_bo_table); $i++)
                     bo_use_sideview     = '0',
                     bo_use_file_content = '0',
                     bo_use_secret       = '0',
-                    bo_use_dhtml_editor = '0',
+                    bo_use_dhtml_editor = '1',
                     bo_use_rss_view     = '0',
                     bo_use_good         = '0',
                     bo_use_nogood       = '0',
@@ -383,6 +383,8 @@ fwrite($f, "\$g5['faq_master_table'] = G5_TABLE_PREFIX.'faq_master'; // 자주�
 fwrite($f, "\$g5['new_win_table'] = G5_TABLE_PREFIX.'new_win'; // 새창 테이블\n");
 fwrite($f, "\$g5['menu_table'] = G5_TABLE_PREFIX.'menu'; // 메뉴관리 테이블\n");
 fwrite($f, "\$g5['social_profile_table'] = G5_TABLE_PREFIX.'member_social_profiles'; // 소셜 로그인 테이블\n");
+fwrite($f, "\$g5['hash_tag_table'] = G5_TABLE_PREFIX.'tags'; // 해시 태그 테이블\n");
+fwrite($f, "\$g5['tag_write_table'] = G5_TABLE_PREFIX.'tag_write'; // 태그와 게시판 관계 테이블\n");
 fwrite($f, "?>");
 
 fclose($f);
