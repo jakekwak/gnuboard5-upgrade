@@ -108,6 +108,10 @@ add_stylesheet('<link rel="stylesheet" href="'.$board_skin_url.'/style.css">', 0
 
         <?php if ($is_signature) { ?><p><?php echo $signature ?></p><?php } ?>
 
+        <!-- { 태그 시작 -->	
+        <?php include_once(G5_TAG_PATH."/view.tag.view.skin.php");?>
+        <!-- } 태그 끝 -->
+
 
         <!--  추천 비추천 시작 { -->
         <?php if ( $good_href || $nogood_href) { ?>
