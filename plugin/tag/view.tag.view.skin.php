@@ -51,7 +51,7 @@ if( $view['tags'] ){
     for ($i=0; $row=sql_fetch_array($result); $i++) {
       $val = trim($row['name']);
   ?>
-	<a href="<?php echo G5_BBS_URL?>/board.php?bo_table=<?php echo $bo_table?>&amp;sfl=tags&amp;stx=<?php echo $val?>"><?php echo $val?></a>
+	<a href="<?php echo G5_BBS_URL?>/tags.php?q=<?php echo $val?>"><?php echo $val?></a>
 	<?php }?>
 </div>
 
