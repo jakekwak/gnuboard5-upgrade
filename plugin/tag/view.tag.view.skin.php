@@ -3,7 +3,7 @@ if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 if (!$board['bo_use_tag']) return;
 
 // 게시글 $view에서 $tags를 분리해서 표시함.
-$arrtag = explode(",", $view['tags']);
+// $arrtag = explode(",", $view['tags']);
 
 $sql_table = "SELECT $g5[hash_tag_table].name
   FROM $write_table
@@ -12,7 +12,7 @@ $sql_table = "SELECT $g5[hash_tag_table].name
   WHERE $g5[hash_tag_table].bo_table = '$bo_table' and $write_table.wr_id = $wr_id";
 $result = sql_query( $sql_table , false);
 
-if( $view['tags'] ){
+// if( $view['tags'] ){
 ?>
 <style>
 .hash_tag {
@@ -52,9 +52,13 @@ if( $view['tags'] ){
       $val = trim($row['name']);
   ?>
 	<a href="<?php echo G5_BBS_URL?>/tags.php?q=<?php echo $val?>"><?php echo $val?></a>
-	<?php }?>
+	<?php
+   }
+  ?>
 </div>
 
 <!-- //태그목록 -->
 
-<?php }?>
+<?php
+//  }
+?>
