@@ -307,6 +307,19 @@ for ($i=0; $i<count($tmp_bo_table); $i++)
     $target = array($create_table, "");
     $sql = preg_replace($source, $target, $sql);
     sql_query($sql, false, $dblink);
+
+    // 게시판 테이블 생성
+    $file = file("../".G5_ADMIN_DIR."/sql_comment.sql");
+    $file = get_db_create_replace($file);
+    $sql = implode("\n", $file);
+
+    $create_table = $table_prefix.'comment_' . $tmp_bo_table[$i];
+
+    // sql_board.sql 파일의 테이블명을 변환
+    $source = array("/__TABLE_NAME__/", "/;/");
+    $target = array($create_table, "");
+    $sql = preg_replace($source, $target, $sql);
+    sql_query($sql, false, $dblink);
 }
 ?>
 

@@ -258,6 +258,7 @@ if ($w == '' || $w == 'r') {
                      wr_reply = '$wr_reply',
                      wr_comment = 0,
                      ca_name = '$ca_name',
+                     bo_table = '$bo_table',
                      wr_option = '$html,$secret,$mail',
                      wr_subject = '$wr_subject',
                      wr_content = '$wr_content',
