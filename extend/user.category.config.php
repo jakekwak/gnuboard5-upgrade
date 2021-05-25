@@ -10,7 +10,7 @@ $g5['category_table'] = G5_TABLE_PREFIX.'categories'; // 카테고리 테이블\
 $g5['category_board_table'] = G5_TABLE_PREFIX.'category_board'; // 카테고리와 보드 관계 테이블\n");
 
 //tag 사용여부
-$board['bo_use_category'] = true;
+$board['bo_use_categories_xx'] = true;
 
 if (G5_IS_MOBILE) {
   $categories_skin_path      = get_skin_path('categories', 'theme/basic');

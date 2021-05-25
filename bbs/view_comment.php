@@ -20,7 +20,7 @@ if ($member['mb_level'] >= $board['bo_comment_level'])
 
 // 코멘트 출력
 //$sql = " select * from {$write_table} where wr_parent = '{$wr_id}' and wr_is_comment = 1 order by wr_comment desc, wr_comment_reply ";
-$sql = " select * from $write_table where wr_parent = '$wr_id' and wr_is_comment = 1 order by wr_comment, wr_comment_reply ";
+$sql = " select * from $comment_table where wr_parent = '$wr_id' and wr_is_comment = 1 order by wr_comment, wr_comment_reply ";
 $result = sql_query($sql);
 for ($i=0; $row=sql_fetch_array($result); $i++)
 {

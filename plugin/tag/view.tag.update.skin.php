@@ -19,11 +19,20 @@ if( $wr_id && $_POST['tags'] ){
 
 	foreach( $arrtag as $key => $val ){ 
 		$val = trim($val);
-		$sql_table	=	"INSERT INTO $g5[hash_tag_table] SET bo_table = '$bo_table', name = '".$val."', ip = '{$_SERVER['REMOTE_ADDR']}';";
-		sql_query( $sql_table , false );	
-    $tag_id = $g5['connect_db']->insert_id;	
-    $sql_table = "INSERT INTO $g5[tag_write_table] SET wr_id = $wr_id, tag_id = $tag_id;";
-		sql_query( $sql_table , false );	
+    // $wr_id 와 $val 값을 가지고 중복을 체크(중복이 아니면 쓰고, 중복이면 패스)
+    $sql_table = "SELECT count(1) AS flag FROM $g5[hash_tag_table] a 
+                     JOIN $g5[tag_write_table] b ON b.wr_id = $wr_id and b.tag_id = a.id
+                     WHERE name = '".$val."' and bo_table = '$bo_table'";
+    $exist = sql_fetch( $sql_table , false );
+    // fb('$exist1', $exist['flag']);
+    // fb('$exist tag', $val);
+    if ($exist['flag'] == '0') {
+      $sql_table	=	"INSERT INTO $g5[hash_tag_table] SET bo_table = '$bo_table', name = '".$val."', ip = '{$_SERVER['REMOTE_ADDR']}';";
+      sql_query( $sql_table , false );	
+      $tag_id = $g5['connect_db']->insert_id;	
+      $sql_table = "INSERT INTO $g5[tag_write_table] SET wr_id = $wr_id, tag_id = $tag_id;";
+      sql_query( $sql_table , false );	
+    }
 	}
 }
 
