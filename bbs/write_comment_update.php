@@ -102,7 +102,7 @@ if ($w == 'c') // 댓글 입력
     // 댓글 답변
     if ($comment_id)
     {
-        $reply_array = get_write($write_table, $comment_id, true);
+        $reply_array = get_write($comment_table, $comment_id, true);
         if (!$reply_array['wr_id'])
             alert('답변할 댓글이 없습니다.\\n\\n답변하는 동안 댓글이 삭제되었을 수 있습니다.');
 
@@ -120,7 +120,7 @@ if ($w == 'c') // 댓글 입력
             $end_reply_char = 'Z';
             $reply_number = +1;
             $sql = " select MAX(SUBSTRING(wr_comment_reply, $reply_len, 1)) as reply
-                        from $write_table
+                        from $comment_table
                         where wr_parent = '$wr_id'
                         and wr_comment = '$tmp_comment'
                         and SUBSTRING(wr_comment_reply, $reply_len, 1) <> '' ";
@@ -131,7 +131,7 @@ if ($w == 'c') // 댓글 입력
             $end_reply_char = 'A';
             $reply_number = -1;
             $sql = " select MIN(SUBSTRING(wr_comment_reply, $reply_len, 1)) as reply
-                        from $write_table
+                        from $comment_table
                         where wr_parent = '$wr_id'
                         and wr_comment = '$tmp_comment'
                         and SUBSTRING(wr_comment_reply, $reply_len, 1) <> '' ";
@@ -151,7 +151,7 @@ if ($w == 'c') // 댓글 입력
     }
     else
     {
-        $sql = " select max(wr_comment) as max_comment from $write_table
+        $sql = " select max(wr_comment) as max_comment from $comment_table
                     where wr_parent = '$wr_id' and wr_is_comment = 1 ";
         $row = sql_fetch($sql);
         //$row[max_comment] -= 1;
@@ -162,7 +162,7 @@ if ($w == 'c') // 댓글 입력
 
     $wr_subject = get_text(stripslashes($wr['wr_subject']));
 
-    $sql = " insert into $write_table
+    $sql = " insert into $comment_table
                 set ca_name = '{$wr['ca_name']}',
                      wr_option = '$wr_secret',
                      wr_num = '{$wr['wr_num']}',

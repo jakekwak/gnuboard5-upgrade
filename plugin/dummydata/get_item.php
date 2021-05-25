@@ -166,6 +166,7 @@ if($action === 'get_catetory'){
                          wr_subject = '".addslashes($row['wr_subject'])."',
                          wr_content = '".addslashes($row['wr_content'])."',
                          wr_link1 = '',
+                         bo_table = '$move_bo_table',
                          wr_link2 = '',
                          wr_link1_hit = '0',
                          wr_link2_hit = '0',

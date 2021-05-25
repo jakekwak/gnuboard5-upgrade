@@ -463,12 +463,14 @@ if (isset($_SESSION['ss_mb_id']) && $_SESSION['ss_mb_id']) { // 로그인중이�
 
 $write = array();
 $write_table = '';
+$comment_table = '';
 if ($bo_table) {
     $board = get_board_db($bo_table, true);
     if (isset($board['bo_table']) && $board['bo_table']) {
         set_cookie("ck_bo_table", $board['bo_table'], 86400 * 1);
         $gr_id = $board['gr_id'];
         $write_table = $g5['write_prefix'] . $bo_table; // 게시판 테이블 전체이름
+        $comment_table = $g5['comment_prefix'] . $bo_table; // 게시판 테이블 전체이름
 
         if (isset($wr_id) && $wr_id) {
             $write = get_write($write_table, $wr_id);
