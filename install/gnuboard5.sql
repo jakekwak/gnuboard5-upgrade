@@ -916,6 +916,7 @@ CREATE TABLE IF NOT EXISTS `g5_new_win` (
 DROP TABLE IF EXISTS `g5_menu`;
 CREATE TABLE IF NOT EXISTS `g5_menu` (
   `me_id` int(11) NOT NULL AUTO_INCREMENT,
+  `me_parent_id` int(11) NOT NULL,
   `me_code` varchar(255) NOT NULL DEFAULT '',
   `me_name` varchar(255) NOT NULL DEFAULT '',
   `me_link` varchar(255) NOT NULL DEFAULT '',
