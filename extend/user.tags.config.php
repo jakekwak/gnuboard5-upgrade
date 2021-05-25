@@ -1,7 +1,7 @@
 <?php
 if (!defined('_GNUBOARD_')) exit; // 개별 페이지 접근 불가
 
-define('G5_TAG_DIR',        'tag');
+define('G5_TAG_DIR',        'tags');
 define('G5_TAG_URL',        G5_PLUGIN_URL.'/'.G5_TAG_DIR);
 define('G5_TAG_PATH',		G5_PLUGIN_PATH.'/'.G5_TAG_DIR);
 
@@ -38,7 +38,8 @@ if(!sql_query(" DESC  $g5[hash_tag_table]", false)) {
 if(!sql_query(" DESC  $g5[tag_write_table]", false)) {
 	$sql_table = "create table $g5[tag_write_table] (
 		wr_id  int(11) NOT NULL,
-		tag_id  int(11) NOT NULL
+		tag_id  int(11) NOT NULL,
+    bo_table varchar(20) NOT NULL DEFAULT ''
 		) COMMENT '글과 태그 관계테이블'";
 
 	sql_query( $sql_table, false );

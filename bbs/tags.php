@@ -42,7 +42,7 @@ for ($i=0; $row=sql_fetch_array($result); $i++) {
         // 원글
         $row2 = sql_fetch(" SELECT * FROM {$tmp_write_table} a JOIN {$g5['tag_write_table']} b ON b.tag_id = '{$row['id']}' WHERE  a.wr_id = b.wr_id ");
         $list[$i] = $row2;
-        fb($list[$i]);
+        // fb($list[$i]);
 
         $name = get_sideview($row2['mb_id'], get_text(cut_str($row2['wr_name'], $config['cf_cut_name'])), $row2['wr_email'], $row2['wr_homepage']);
         // 당일인 경우 시간으로 표시함
