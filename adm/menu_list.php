@@ -13,6 +13,7 @@ if( !isset($g5['menu_table']) ){
 if(!sql_query(" DESCRIBE {$g5['menu_table']} ", false)) {
     sql_query(" CREATE TABLE IF NOT EXISTS `{$g5['menu_table']}` (
                   `me_id` int(11) NOT NULL AUTO_INCREMENT,
+                  `me_parent_id` int(11) NOT NULL,
                   `me_code` varchar(255) NOT NULL DEFAULT '',
                   `me_name` varchar(255) NOT NULL DEFAULT '',
                   `me_link` varchar(255) NOT NULL DEFAULT '',

@@ -108,10 +108,15 @@ function get_menu_db($use_mobile=0, $is_cache=false){
     $where = $use_mobile ? "me_mobile_use = '1'" : "me_use = '1'";
 
     if( !($cache[$key] = run_replace('get_menu_db', array(), $use_mobile)) ){
+        // $sql = " select *
+        //         from {$g5['menu_table']}
+        //         where $where
+        //         and length(me_code) = '2'
+        //         order by me_order, me_id ";
         $sql = " select *
                 from {$g5['menu_table']}
                 where $where
-                and length(me_code) = '2'
+                and me_parent_id = 0
                 order by me_order, me_id ";
         $result = sql_query($sql, false);
 
@@ -122,11 +127,16 @@ function get_menu_db($use_mobile=0, $is_cache=false){
             $row['sub'] = isset($row['sub']) ? $row['sub'] : array();
             $cache[$key][$i] = $row;
 
+            // $sql2 = " select *
+            //         from {$g5['menu_table']}
+            //         where $where
+            //         and length(me_code) = '4'
+            //         and substring(me_code, 1, 2) = '{$row['me_code']}'
+            //         order by me_order, me_id ";
             $sql2 = " select *
                     from {$g5['menu_table']}
                     where $where
-                    and length(me_code) = '4'
-                    and substring(me_code, 1, 2) = '{$row['me_code']}'
+                    and me_parent_id = {$row['me_id']}
                     order by me_order, me_id ";
             $result2 = sql_query($sql2);
             for ($k=0; $row2=sql_fetch_array($result2); $k++) {
