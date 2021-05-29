@@ -143,7 +143,8 @@ if ($w == '' || $w == 'u') {
     }
 
     //회원 자신이 쓴글을 수정할 경우 공지가 풀리는 경우가 있음 
-    if($w =='u' && !$is_admin && $board['bo_notice'] && in_array($wr['wr_id'], $notice_array)){
+    // if($w =='u' && !$is_admin && $board['bo_notice'] && in_array($wr['wr_id'], $notice_array)){
+    if($w =='u' && !$is_admin && $board['bo_notice'] && $wr['wr_notice']){
         $notice = 1;
     }
 
@@ -156,7 +157,8 @@ if ($w == '' || $w == 'u') {
 
 } else if ($w == 'r') {
 
-    if (in_array((int)$wr_id, $notice_array)) {
+    // if (in_array((int)$wr_id, $notice_array)) {
+    if ($wr['wr_notice']) {
         alert('공지에는 답변 할 수 없습니다.');
     }
 
@@ -253,13 +255,20 @@ if ($w == '' || $w == 'r') {
         $wr_reply = '';
     }
 
+    $wr_secret = $secret ? 1 : 0;
+    $wr_mail = $mail ? 1 : 0;
+    $wr_notice = $notice ? 1 : 0;
+    //  wr_option = '$html,$secret,$mail',
     $sql = " insert into $write_table
                 set wr_num = '$wr_num',
                      wr_reply = '$wr_reply',
                      wr_comment = 0,
                      ca_name = '$ca_name',
                      bo_table = '$bo_table',
-                     wr_option = '$html,$secret,$mail',
+                     wr_option = '$html',
+                     wr_secret = $wr_secret,
+                     wr_mail = $wr_mail,
+                     wr_notice = $wr_notice,
                      wr_subject = '$wr_subject',
                      wr_content = '$wr_content',
                      wr_seo_title = '$wr_seo_title',
@@ -379,9 +388,18 @@ if ($w == '' || $w == 'r') {
     if (!$is_admin)
         $sql_ip = " , wr_ip = '{$_SERVER['REMOTE_ADDR']}' ";
 
+    $wr_secret = $secret ? 1 : 0;
+    $wr_mail = $mail ? 1 : 0;
+    $wr_notice = $notice ? 1 : 0;
+
+    // wr_option = '{$html},{$secret},{$mail}',
     $sql = " update {$write_table}
                 set ca_name = '{$ca_name}',
-                     wr_option = '{$html},{$secret},{$mail}',
+                     bo_table = '$bo_table',
+                     wr_option = '$html',
+                     wr_secret = $wr_secret,
+                     wr_mail = $wr_mail,
+                     wr_notice = $wr_notice,
                      wr_subject = '{$wr_subject}',
                      wr_content = '{$wr_content}',
                      wr_seo_title = '$wr_seo_title',
@@ -726,7 +744,8 @@ if (!($w == 'u' || $w == 'cu') && $config['cf_email_use'] && $board['bo_use_emai
     }
 
     // 옵션에 메일받기가 체크되어 있고, 게시자의 메일이 있다면
-    if (strstr($wr['wr_option'], 'mail') && $wr['wr_email'])
+    // if (strstr($wr['wr_option'], 'mail') && $wr['wr_email'])
+    if ($wr['wr_mail'] && $wr['wr_email'])
         $array_email[] = $wr['wr_email'];
 
     // 중복된 메일 주소는 제거

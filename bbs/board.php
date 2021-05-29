@@ -83,6 +83,7 @@ if ((isset($wr_id) && $wr_id) || (isset($wr_seo_title) && $wr_seo_title)) {
         ;
     } else {
         // 비밀글이라면
+        // if($write['wr_secret'])  //wr_option_test
         if (strstr($write['wr_option'], "secret"))
         {
             // 회원이 비밀글을 올리고 관리자가 답변글을 올렸을 경우

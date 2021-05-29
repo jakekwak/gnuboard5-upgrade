@@ -86,15 +86,25 @@ $notice_array = array();
 // 공지 처리
 if (!$is_search_bbs) {
     $arr_notice = explode(',', trim($board['bo_notice']));
+    fb($arr_notice);
+
     $from_notice_idx = ($page - 1) * $page_rows;
     if($from_notice_idx < 0)
         $from_notice_idx = 0;
+        
     $board_notice_count = count($arr_notice);
+    $row = sql_fetch(" SELECT count(*) FROM {$write_table} WHERE wr_notice = 1");
+    $board_notice_count = $row['count(*)'];
 
-    for ($k=0; $k<$board_notice_count; $k++) {
-        if (trim($arr_notice[$k]) == '') continue;
+    $result = sql_query(" SELECT * FROM {$write_table} WHERE wr_notice = 1");
+    fb($result);
+    
+    // for ($k=0; $k<$board_notice_count; $k++) {
+    for ($k=0; $row = sql_fetch_array($result); $k++) {
+      fb($row);
+        // if (trim($arr_notice[$k]) == '') continue;
 
-        $row = sql_fetch(" select * from {$write_table} where wr_id = '{$arr_notice[$k]}' ");
+        // $row = sql_fetch(" select * from {$write_table} where wr_id = '{$arr_notice[$k]}' ");
 
         if (!$row['wr_id']) continue;
 

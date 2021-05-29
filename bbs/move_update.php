@@ -59,6 +59,7 @@ while ($row = sql_fetch_array($result))
 
             $nick = cut_str($member['mb_nick'], $config['cf_cut_name']);
             if (!$row2['wr_is_comment'] && $config['cf_use_copy_log']) {
+                // if(strstr($row2['wr_option_test'], 'html')) {
                 if(strstr($row2['wr_option'], 'html')) {
                     $log_tag1 = '<div class="content_'.$sw.'">';
                     $log_tag2 = '</div>';
@@ -85,6 +86,7 @@ while ($row = sql_fetch_array($result))
                              wr_comment_reply = '{$row2['wr_comment_reply']}',
                              ca_name = '".addslashes($row2['ca_name'])."',
                              wr_option = '{$row2['wr_option']}',
+                             wr_option_test = '{$row2['wr_option_test']}',
                              wr_subject = '".addslashes($row2['wr_subject'])."',
                              wr_content = '".addslashes($row2['wr_content'])."',
                              wr_link1 = '".addslashes($row2['wr_link1'])."',
