@@ -266,7 +266,7 @@ if ($w == 'c') // 댓글 입력
     // SNS 등록
     include_once("./write_comment_update.sns.php");
     if($wr_facebook_user || $wr_twitter_user) {
-        $sql = " update $write_table
+        $sql = " update $comment_table
                     set wr_facebook_user = '$wr_facebook_user',
                         wr_twitter_user  = '$wr_twitter_user'
                     where wr_id = '$comment_id' ";
@@ -275,7 +275,7 @@ if ($w == 'c') // 댓글 입력
 }
 else if ($w == 'cu') // 댓글 수정
 {
-    $sql = " select mb_id, wr_password, wr_comment, wr_comment_reply from $write_table
+    $sql = " select mb_id, wr_password, wr_comment, wr_comment_reply from $comment_table
                 where wr_id = '$comment_id' ";
     $comment = $reply_array = sql_fetch($sql);
     $tmp_comment = $reply_array['wr_comment'];
@@ -313,7 +313,7 @@ else if ($w == 'cu') // 댓글 수정
             alert('댓글을 수정할 권한이 없습니다.');
     }
 
-    $sql = " select count(*) as cnt from $write_table
+    $sql = " select count(*) as cnt from $comment_table
                 where wr_comment_reply like '$comment_reply%'
                 and wr_id <> '$comment_id'
                 and wr_parent = '$wr_id'
@@ -332,7 +332,7 @@ else if ($w == 'cu') // 댓글 수정
         // $sql_secret = " , wr_option = '$wr_secret' ";
         $sql_secret = " , wr_secret = 1 ";
 
-    $sql = " update $write_table
+    $sql = " update $comment_table
                 set wr_subject = '$wr_subject',
                      wr_content = '$wr_content',
                      wr_1 = '$wr_1',
