@@ -127,7 +127,7 @@ $colspan = 5;
             <?php echo $row['au_menu'] ?>
             <?php echo $auth_menu[$row['au_menu']] ?>
         </td>
-        <td class="td_auth"><?php echo $row['au_auth'] ?></td>
+        <td class="td_auth"><?php if ($row['au_read']) echo " r"; if ($row['au_write']) echo " w"; if ($row['au_delete']) echo " d";?></td>
     </tr>
     <?php
         $count++;

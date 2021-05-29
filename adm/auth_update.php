@@ -23,14 +23,24 @@ if (!chk_captcha()) {
     alert('자동등록방지 숫자가 틀렸습니다.');
 }
 
+$post_read = $post_r ? 1 : 0;
+$post_write = $post_w ? 1 : 0;
+$post_delete = $post_d ? 1 : 0;
+
 $sql = " insert into {$g5['auth_table']}
             set mb_id   = '$mb_id',
                 au_menu = '$au_menu',
+                au_read = '$post_read',
+                au_write = '$post_write',
+                au_delete = '$post_delete',
                 au_auth = '{$post_r},{$post_w},{$post_d}' ";
 $result = sql_query($sql, FALSE);
 if (!$result) {
     $sql = " update {$g5['auth_table']}
                 set au_auth = '{$post_r},{$post_w},{$post_d}'
+                    au_read = '$post_read'
+                    au_write = '$post_write'
+                    au_delete = '$post_delete'
               where mb_id   = '$mb_id'
                 and au_menu = '$au_menu' ";
     sql_query($sql);
