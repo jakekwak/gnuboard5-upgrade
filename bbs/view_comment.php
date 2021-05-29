@@ -18,6 +18,8 @@ $is_comment_write = false;
 if ($member['mb_level'] >= $board['bo_comment_level'])
     $is_comment_write = true;
 
+// wr_comment_reply로 하면 A와 B가 자동으로 소팅됨. wr_comment_parent로 하면 B도 A와 같이 나옴.(날짜를 추가로.)
+$sql = " select * from $comment_table where wr_parent = '$wr_id' and wr_is_comment = 1 order by wr_comment, wr_id, wr_comment_parent,  ";
 // 코멘트 출력
 //$sql = " select * from {$write_table} where wr_parent = '{$wr_id}' and wr_is_comment = 1 order by wr_comment desc, wr_comment_reply ";
 $sql = " select * from $comment_table where wr_parent = '$wr_id' and wr_is_comment = 1 order by wr_comment, wr_comment_reply ";
