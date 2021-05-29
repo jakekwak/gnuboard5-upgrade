@@ -170,6 +170,7 @@ if ($w == 'c') // 댓글 입력
                      wr_num = '{$wr['wr_num']}',
                      wr_reply = '',
                      wr_parent = '$wr_id',
+                     wr_comment_parent = '$comment_id',
                      wr_is_comment = 1,
                      bo_table = '$bo_table',
                      wr_comment = '$tmp_comment',
