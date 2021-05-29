@@ -6,13 +6,14 @@
 
 DROP TABLE IF EXISTS `g5_auth`;
 CREATE TABLE IF NOT EXISTS `g5_auth` (
+  `id` int(11) NOT NULL auto_increment,
   `mb_id` varchar(20) NOT NULL default '',
   `au_menu` varchar(20) NOT NULL default '',
   `au_auth` set('r','w','d') NOT NULL default '',
   `au_read` tinyint(4) NOT NULL DEFAULT '0',
   `au_write` tinyint(4) NOT NULL DEFAULT '0',
   `au_delete` tinyint(4) NOT NULL DEFAULT '0',
-  PRIMARY KEY  (`mb_id`,`au_menu`)
+  PRIMARY KEY  (`id`, `mb_id`,`au_menu`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -23,6 +24,7 @@ CREATE TABLE IF NOT EXISTS `g5_auth` (
 
 DROP TABLE IF EXISTS `g5_board`;
 CREATE TABLE IF NOT EXISTS `g5_board` (
+  `id` int(11) NOT NULL auto_increment,
   `bo_table` varchar(20) NOT NULL DEFAULT '',
   `gr_id` varchar(255) NOT NULL DEFAULT '',
   `bo_subject` varchar(255) NOT NULL DEFAULT '',
@@ -119,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `g5_board` (
   `bo_8` varchar(255) NOT NULL DEFAULT '',
   `bo_9` varchar(255) NOT NULL DEFAULT '',
   `bo_10` varchar(255) NOT NULL DEFAULT '',
-  PRIMARY KEY (`bo_table`)
+  PRIMARY KEY (`id`, `bo_table`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -130,6 +132,7 @@ CREATE TABLE IF NOT EXISTS `g5_board` (
 
 DROP TABLE IF EXISTS `g5_board_file`;
 CREATE TABLE IF NOT EXISTS `g5_board_file` (
+  `id` int(11) NOT NULL auto_increment,
   `bo_table` varchar(20) NOT NULL default '',
   `wr_id` int(11) NOT NULL default '0',
   `bf_no` int(11) NOT NULL default '0',
@@ -145,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `g5_board_file` (
   `bf_height` smallint(6) NOT NULL default '0',
   `bf_type` tinyint(4) NOT NULL default '0',
   `bf_datetime` datetime NOT NULL default '0000-00-00 00:00:00',
-  PRIMARY KEY  (`bo_table`,`wr_id`,`bf_no`)
+  PRIMARY KEY  (`id`, `bo_table`,`wr_id`,`bf_no`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -192,6 +195,7 @@ CREATE TABLE IF NOT EXISTS `g5_board_new` (
 
 DROP TABLE IF EXISTS `g5_config`;
 CREATE TABLE IF NOT EXISTS `g5_config` (
+  `id` int(11) NOT NULL auto_increment,
   `cf_title` varchar(255) NOT NULL DEFAULT '',
   `cf_theme` varchar(100) NOT NULL DEFAULT '',
   `cf_admin` varchar(100) NOT NULL DEFAULT '',
@@ -340,7 +344,8 @@ CREATE TABLE IF NOT EXISTS `g5_config` (
   `cf_7` varchar(255) NOT NULL DEFAULT '',
   `cf_8` varchar(255) NOT NULL DEFAULT '',
   `cf_9` varchar(255) NOT NULL DEFAULT '',
-  `cf_10` varchar(255) NOT NULL DEFAULT ''
+  `cf_10` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -370,6 +375,7 @@ CREATE TABLE IF NOT EXISTS `g5_cert_history` (
 
 DROP TABLE IF EXISTS `g5_group`;
 CREATE TABLE IF NOT EXISTS `g5_group` (
+  `id` int(11) NOT NULL auto_increment,
   `gr_id` varchar(10) NOT NULL default '',
   `gr_subject` varchar(255) NOT NULL default '',
   `gr_device` ENUM('both','pc','mobile') NOT NULL DEFAULT 'both',
@@ -396,7 +402,7 @@ CREATE TABLE IF NOT EXISTS `g5_group` (
   `gr_8` varchar(255) NOT NULL default '',
   `gr_9` varchar(255) NOT NULL default '',
   `gr_10` varchar(255) NOT NULL default '',
-  PRIMARY KEY  (`gr_id`)
+  PRIMARY KEY  (`id`, `gr_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -424,12 +430,13 @@ CREATE TABLE IF NOT EXISTS `g5_group_member` (
 
 DROP TABLE IF EXISTS `g5_login`;
 CREATE TABLE IF NOT EXISTS `g5_login` (
+  `id` int(11) NOT NULL auto_increment,
   `lo_ip` varchar(100) NOT NULL default '',
   `mb_id` varchar(20) NOT NULL default '',
   `lo_datetime` datetime NOT NULL default '0000-00-00 00:00:00',
   `lo_location` text NOT NULL,
   `lo_url` text NOT NULL,
-  PRIMARY KEY  (`lo_ip`)
+  PRIMARY KEY  (`id`, `lo_ip`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -609,13 +616,14 @@ CREATE TABLE IF NOT EXISTS `g5_poll` (
 
 DROP TABLE IF EXISTS `g5_poll_etc`;
 CREATE TABLE IF NOT EXISTS `g5_poll_etc` (
+  `id` int(11) NOT NULL auto_increment,
   `pc_id` int(11) NOT NULL default '0',
   `po_id` int(11) NOT NULL default '0',
   `mb_id` varchar(20) NOT NULL default '',
   `pc_name` varchar(255) NOT NULL default '',
   `pc_idea` varchar(255) NOT NULL default '',
   `pc_datetime` datetime NOT NULL default '0000-00-00 00:00:00',
-  PRIMARY KEY  (`pc_id`)
+  PRIMARY KEY  (`id`, `pc_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -659,6 +667,7 @@ CREATE TABLE IF NOT EXISTS `g5_scrap` (
 
 DROP TABLE IF EXISTS `g5_visit`;
 CREATE TABLE IF NOT EXISTS `g5_visit` (
+  `id` int(11) NOT NULL auto_increment,
   `vi_id` int(11) NOT NULL default '0',
   `vi_ip` varchar(100) NOT NULL default '',
   `vi_date` date NOT NULL default '0000-00-00',
@@ -668,7 +677,7 @@ CREATE TABLE IF NOT EXISTS `g5_visit` (
   `vi_browser` varchar(255) NOT NULL DEFAULT '',
   `vi_os` varchar(255) NOT NULL DEFAULT '',
   `vi_device` varchar(255) NOT NULL DEFAULT '',
-  PRIMARY KEY  (`vi_id`),
+  PRIMARY KEY  (`id`, `vi_id`),
   UNIQUE KEY `index1` (`vi_ip`,`vi_date`),
   KEY `index2` (`vi_date`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
@@ -681,9 +690,10 @@ CREATE TABLE IF NOT EXISTS `g5_visit` (
 
 DROP TABLE IF EXISTS `g5_visit_sum`;
 CREATE TABLE IF NOT EXISTS `g5_visit_sum` (
+  `id` int(11) NOT NULL auto_increment,
   `vs_date` date NOT NULL default '0000-00-00',
   `vs_count` int(11) NOT NULL default '0',
-  PRIMARY KEY  (`vs_date`),
+  PRIMARY KEY  (`id`, `vs_date`),
   KEY `index1` (`vs_count`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
@@ -695,9 +705,10 @@ CREATE TABLE IF NOT EXISTS `g5_visit_sum` (
 
 DROP TABLE IF EXISTS `g5_uniqid`;
 CREATE TABLE IF NOT EXISTS `g5_uniqid` (
+  `id` int(11) NOT NULL auto_increment,
   `uq_id` bigint(20) unsigned NOT NULL,
   `uq_ip` varchar(255) NOT NULL,
-  PRIMARY KEY (`uq_id`)
+  PRIMARY KEY (`id`, `uq_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -727,6 +738,7 @@ CREATE TABLE IF NOT EXISTS `g5_autosave` (
 
 DROP TABLE IF EXISTS `g5_qa_config`;
 CREATE TABLE IF NOT EXISTS `g5_qa_config` (
+  `id` int(11) NOT NULL auto_increment,
   `qa_title` varchar(255) NOT NULL DEFAULT'',
   `qa_category` varchar(255) NOT NULL DEFAULT'',
   `qa_skin` varchar(255) NOT NULL DEFAULT '',
@@ -762,7 +774,8 @@ CREATE TABLE IF NOT EXISTS `g5_qa_config` (
   `qa_2` varchar(255) NOT NULL DEFAULT '',
   `qa_3` varchar(255) NOT NULL DEFAULT '',
   `qa_4` varchar(255) NOT NULL DEFAULT '',
-  `qa_5` varchar(255) NOT NULL DEFAULT ''
+  `qa_5` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -812,6 +825,7 @@ CREATE TABLE IF NOT EXISTS `g5_qa_content` (
 
 DROP TABLE IF EXISTS `g5_content`;
 CREATE TABLE IF NOT EXISTS `g5_content` (
+  `id` int(11) NOT NULL auto_increment,
   `co_id` varchar(20) NOT NULL DEFAULT '',
   `co_html` tinyint(4) NOT NULL DEFAULT '0',
   `co_subject` varchar(255) NOT NULL DEFAULT '',
@@ -824,7 +838,7 @@ CREATE TABLE IF NOT EXISTS `g5_content` (
   `co_hit` int(11) NOT NULL DEFAULT '0',
   `co_include_head` varchar(255) NOT NULL,
   `co_include_tail` varchar(255) NOT NULL,
-  PRIMARY KEY (`co_id`),
+  PRIMARY KEY (`id`, `co_id`),
   KEY `co_seo_title` (`co_seo_title`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 

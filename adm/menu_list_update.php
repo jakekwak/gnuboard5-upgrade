@@ -45,17 +45,12 @@ for ($i=0; $i<$count; $i++)
                     from {$g5['menu_table']}
                     where SUBSTRING(me_code,1,2) = '$primary_code' ";
         $row = sql_fetch($sql);
-        fb($row);
 
         $sub_code = base_convert($row['max_me_code'], 36, 10);
-        fb($me_code);
         $sub_code += 36;
-        fb($me_code);
         $sub_code = base_convert($sub_code, 10, 36);
-        fb($me_code);
 
         $me_code = $primary_code.$sub_code;
-        fb($me_code);
         $me_parent_id = $menu_id;
     } else {
 
@@ -63,14 +58,10 @@ for ($i=0; $i<$count; $i++)
                     from {$g5['menu_table']}
                     where LENGTH(me_code) = '2' ";
         $row = sql_fetch($sql);
-        fb($row);
 
         $me_code = base_convert($row['max_me_code'], 36, 10);
-        fb($me_code);
         $me_code += 36;
-        fb($me_code);
         $me_code = base_convert($me_code, 10, 36);
-        fb($me_code);
 
         $group_code = $code;
         $primary_code = $me_code;
