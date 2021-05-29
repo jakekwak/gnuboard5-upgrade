@@ -85,16 +85,16 @@ $notice_array = array();
 
 // 공지 처리
 if (!$is_search_bbs) {
-    $arr_notice = explode(',', trim($board['bo_notice']));
-    fb($arr_notice);
+    // $arr_notice = explode(',', trim($board['bo_notice']));
+    // fb($arr_notice);
 
     $from_notice_idx = ($page - 1) * $page_rows;
     if($from_notice_idx < 0)
         $from_notice_idx = 0;
         
-    $board_notice_count = count($arr_notice);
-    $row = sql_fetch(" SELECT count(*) FROM {$write_table} WHERE wr_notice = 1");
-    $board_notice_count = $row['count(*)'];
+    // $board_notice_count = count($arr_notice);
+    // $row = sql_fetch(" SELECT count(*) FROM {$write_table} WHERE wr_notice = 1");
+    // $board_notice_count = $row['count(*)'];
 
     $result = sql_query(" SELECT * FROM {$write_table} WHERE wr_notice = 1");
     fb($result);
