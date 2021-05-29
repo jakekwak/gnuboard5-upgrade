@@ -51,7 +51,7 @@ var char_max = parseInt(<?php echo $comment_max ?>); // 최대
 	        <!-- 댓글 출력 -->
 	        <div class="cmt_contents">
 	            <p>
-	                <?php if (strstr($list[$i]['wr_option'], "secret")) { ?><img src="<?php echo $board_skin_url; ?>/img/icon_secret.gif" alt="비밀글"><?php } ?>
+	                <?php if ($list[$i]['wr_secret']) { ?><img src="<?php echo $board_skin_url; ?>/img/icon_secret.gif" alt="비밀글"><?php } ?>
 	                <?php echo $comment ?>
 	            </p>
 	            <?php if($is_comment_reply_edit) {
@@ -68,7 +68,7 @@ var char_max = parseInt(<?php echo $comment_max ?>); // 최대
 	        <span id="edit_<?php echo $comment_id ?>" class="bo_vc_w"></span><!-- 수정 -->
 	        <span id="reply_<?php echo $comment_id ?>" class="bo_vc_w"></span><!-- 답변 -->
 	
-	        <input type="hidden" value="<?php echo strstr($list[$i]['wr_option'],"secret") ?>" id="secret_comment_<?php echo $comment_id ?>">
+	        <input type="hidden" value="<?php echo $list[$i]['wr_secret'] ?>" id="secret_comment_<?php echo $comment_id ?>">
 	        <textarea id="save_comment_<?php echo $comment_id ?>" style="display:none"><?php echo get_text($list[$i]['content1'], 0) ?></textarea>
 		</div>
         <?php if($is_comment_reply_edit){ ?>

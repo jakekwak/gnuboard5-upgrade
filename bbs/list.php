@@ -97,11 +97,11 @@ if (!$is_search_bbs) {
     // $board_notice_count = $row['count(*)'];
 
     $result = sql_query(" SELECT * FROM {$write_table} WHERE wr_notice = 1");
-    fb($result);
+    // fb($result);
     
     // for ($k=0; $k<$board_notice_count; $k++) {
     for ($k=0; $row = sql_fetch_array($result); $k++) {
-      fb($row);
+      // fb($row);
         // if (trim($arr_notice[$k]) == '') continue;
 
         // $row = sql_fetch(" select * from {$write_table} where wr_id = '{$arr_notice[$k]}' ");

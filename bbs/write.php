@@ -115,7 +115,8 @@ if ($w == '') {
         alert('정상적인 접근이 아닙니다.');
 
     // 비밀글인지를 검사
-    if (strstr($write['wr_option'], 'secret')) {
+    // if (strstr($write['wr_option'], 'secret')) {
+    if ($write['wr_secret']) {
         if ($write['mb_id']) {
             // 회원의 경우는 해당 글쓴 회원 및 관리자
             if (!($write['mb_id'] === $member['mb_id'] || $is_admin))
@@ -246,7 +247,8 @@ if ($config['cf_email_use'] && $board['bo_use_email'])
     $is_mail = true;
 
 $recv_email_checked = '';
-if ($w == '' || strstr($write['wr_option'], 'mail'))
+// if ($w == '' || strstr($write['wr_option'], 'mail'))
+if ($w == '' || $write['wr_mail'])
     $recv_email_checked = 'checked';
 
 $is_name     = false;
@@ -335,7 +337,8 @@ if ($w == '') {
         $html_value = 'html2';
     }
 
-    if (strstr($write['wr_option'], 'secret')) {
+    // if (strstr($write['wr_option'], 'secret')) {
+    if ($write['wr_secret']) {
         $secret_checked = 'checked';
     }
 
@@ -351,7 +354,8 @@ if ($w == '') {
     }
 
 } else if ($w == 'r') {
-    if (strstr($write['wr_option'], 'secret')) {
+    // if (strstr($write['wr_option'], 'secret')) {
+    if ($write['wr_secret']) {
         $is_secret = true;
         $secret_checked = 'checked';
     }

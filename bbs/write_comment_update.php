@@ -162,9 +162,11 @@ if ($w == 'c') // 댓글 입력
 
     $wr_subject = get_text(stripslashes($wr['wr_subject']));
 
+    $wr_secret = $wr_secret ? 1 : 0;
+
     $sql = " insert into $comment_table
                 set ca_name = '{$wr['ca_name']}',
-                     wr_option = '$wr_secret',
+                     wr_secret = '$wr_secret',
                      wr_num = '{$wr['wr_num']}',
                      wr_reply = '',
                      wr_parent = '$wr_id',
@@ -327,7 +329,8 @@ else if ($w == 'cu') // 댓글 수정
 
     $sql_secret = "";
     if ($wr_secret)
-        $sql_secret = " , wr_option = '$wr_secret' ";
+        // $sql_secret = " , wr_option = '$wr_secret' ";
+        $sql_secret = " , wr_secret = 1 ";
 
     $sql = " update $write_table
                 set wr_subject = '$wr_subject',

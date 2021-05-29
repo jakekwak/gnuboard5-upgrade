@@ -176,14 +176,16 @@ if ($stx) {
 
             if ($row['wr_is_comment'])
             {
-                $sql2 = " select wr_subject, wr_option from {$tmp_write_table} where wr_id = '{$row['wr_parent']}' ";
+                // $sql2 = " select wr_subject, wr_option from {$tmp_write_table} where wr_id = '{$row['wr_parent']}' ";
+                $sql2 = " select wr_subject, wr_secret from {$tmp_write_table} where wr_id = '{$row['wr_parent']}' ";
                 $row2 = sql_fetch($sql2);
                 //$row['wr_subject'] = $row2['wr_subject'];
                 $row['wr_subject'] = get_text($row2['wr_subject']);
             }
 
             // 비밀글은 검색 불가
-            if (strstr($row['wr_option'].(isset($row2['wr_option']) ? $row2['wr_option'] : ''), 'secret'))
+            // if ($row['wr_option'].(isset($row2['wr_option']) ? $row2['wr_option'] : ''), 'secret'))
+            if ($row['wr_secret'])
                 $row['wr_content'] = '[비밀글 입니다.]';
 
             $subject = get_text($row['wr_subject']);

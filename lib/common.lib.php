@@ -450,7 +450,8 @@ function get_list($write_row, $board, $skin_url, $subject_len=40)
         $list['icon_hot'] = '<i class="fa fa-heart" aria-hidden="true"></i> ';
 
     $list['icon_secret'] = '';
-    if (strstr($list['wr_option'], 'secret'))
+    // if (strstr($list['wr_option'], 'secret'))
+    if ($list['wr_secret'])
         $list['icon_secret'] = '<i class="fa fa-lock" aria-hidden="true"></i> ';
 
     // 링크
