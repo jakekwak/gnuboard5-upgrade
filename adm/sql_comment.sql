@@ -3,6 +3,7 @@ CREATE TABLE `__TABLE_NAME__` (
   `wr_num` int(11) NOT NULL DEFAULT '0',
   `wr_reply` varchar(10) NOT NULL,
   `wr_parent` int(11) NOT NULL DEFAULT '0',
+  `wr_comment_parent` int(11) NOT NULL DEFAULT '0',
   `wr_is_comment` tinyint(4) NOT NULL DEFAULT '0',
   `wr_comment` int(11) NOT NULL DEFAULT '0',
   `wr_comment_reply` varchar(5) NOT NULL,
