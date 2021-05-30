@@ -302,10 +302,10 @@ function comment_box(comment_id, work)
             document.getElementById('wr_content').value = document.getElementById('save_comment_' + comment_id).value;
             if (typeof char_count != 'undefined')
                 check_byte('wr_content', 'char_count');
-            if (document.getElementById('secret_comment_'+comment_id).value)
-                document.getElementById('wr_secret').checked = true;
+            if (document.getElementById('secret_comment_'+comment_id).value != '0')
+              document.getElementById('wr_secret').checked = true;
             else
-                document.getElementById('wr_secret').checked = false;
+              document.getElementById('wr_secret').checked = false;
         }
 
         document.getElementById('comment_id').value = comment_id;

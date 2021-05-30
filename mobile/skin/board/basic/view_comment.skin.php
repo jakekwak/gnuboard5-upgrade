@@ -84,7 +84,7 @@ var char_max = parseInt(<?php echo $comment_max ?>); // 최대
             </div>
                 <span id="edit_<?php echo $comment_id ?>"></span><!-- 수정 -->
                 <span id="reply_<?php echo $comment_id ?>"></span><!-- 답변 -->
-            <input type="hidden" id="secret_comment_<?php echo $comment_id ?>" value="<?php $list[$i]['wr_secret'] ?>">
+            <input type="hidden" id="secret_comment_<?php echo $comment_id ?>" value="<?php echo $list[$i]['wr_secret'] ?>">
             <textarea id="save_comment_<?php echo $comment_id ?>" style="display:none"><?php echo get_text($list[$i]['content1'], 0) ?></textarea>
         </div>
     </article>

@@ -332,6 +332,8 @@ else if ($w == 'cu') // 댓글 수정
     if ($wr_secret)
         // $sql_secret = " , wr_option = '$wr_secret' ";
         $sql_secret = " , wr_secret = 1 ";
+    else
+        $sql_secret = " , wr_secret = 0 ";
 
     $sql = " update $comment_table
                 set wr_subject = '$wr_subject',
