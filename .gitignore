@@ -24,3 +24,5 @@ data/member_image/
 data/session/
 data/tmp/
 plugin/editor/Vditor3
+logs/
+vendor/

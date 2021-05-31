@@ -22,7 +22,9 @@ $(function() {
 
 <?php run_event('tail_sub'); ?>
 
-<script>
+<script type="text/javascript">
+    function preloadFunc()
+    {
       const night = new Night2({
         divId: 'mydarkmode',
         lightClass: 'light',
@@ -40,7 +42,9 @@ $(function() {
         onLight() {},
         onDark() {}
       });
-    </script>
+    }
+    window.onpaint = preloadFunc();
+</script>
 
 </body>
 </html>
