@@ -23,27 +23,23 @@ $(function() {
 <?php run_event('tail_sub'); ?>
 
 <script type="text/javascript">
-    function preloadFunc()
-    {
-      const night = new Night2({
-        divId: 'mydarkmode',
-        lightClass: 'light',
-        darkClass: 'dark',
-        auto: true,
-        intervalForCheckSun: 5, // 5분마다 체크
-        intervalForTime: 60, // 60분마다 체크
-        offset: 30, // 분
-        onToggle() {
-          // console.log('onToggle');
-        },
-        onAuto() {
-          // console.log('onAuto');
-        },
-        onLight() {},
-        onDark() {}
-      });
-    }
-    window.onpaint = preloadFunc();
+    const night = new Night2({
+      lightClass: 'light',
+      darkClass: 'dark',
+      auto: true,
+      intervalForCheckSun: 5, // 5분마다 체크
+      intervalForTime: 60, // 60분마다 체크
+      offset: 30, // 분
+      onToggle(darkmode) {
+      },
+      onChange(darkmode) {
+      },
+      onAuto() {
+        // console.log('onAuto');
+      },
+      onLight() {},
+      onDark() {}
+    });
 </script>
 
 </body>
